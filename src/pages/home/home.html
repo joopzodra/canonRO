@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let entry of entries | async">
+    <h2>{{entry.title}}</h2>
+    <p>{{entry.lead.replace('"', '')}}</p>
+    <!-- <p  *ngFor="let p of entry.body.split('\n')">{{p}}</p> -->
+  </div>
+</ion-content>
