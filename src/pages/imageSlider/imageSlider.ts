@@ -9,27 +9,34 @@ import { IEntry } from '../../datatypes/i-entry';
 })
 export class ImageSliderPage {
 
-  entry: IEntry;
-  img: number;
-  img1Url: string;
-  img2Url: string;
-  img3Url: string;
-  img4Url: string;
+  private entry: IEntry;
+  private initialImg: number;
+  private img1Url: string;
+  private img2Url: string;
+  private img3Url: string;
+  private img4Url: string;
 
   constructor(private navCtrl: NavController, private navParams: NavParams) { }
 
   ngOnInit() {
 
     this.entry = this.navParams.get('entry');
-    this.img = this.navParams.get('img');
-
-    this.img1Url = this.navParams.get('img1');
-    this.img2Url = this.navParams.get('img2');
-    this.img3Url = this.navParams.get('img3');
-    this.img4Url = this.navParams.get('img4');
+    this.initialImg = +this.navParams.get('initialImg');
+    this.getUrls();
   }
 
-  goBack() {
+  private getUrls() {
+    this.img1Url = this.imgUrl(this.entry.id, 1);
+    this.img2Url = this.imgUrl(this.entry.id, 2);
+    this.img3Url = this.entry.img3 !== 'false' ? this.imgUrl(this.entry.id, 3) : undefined;
+    this.img4Url = this.entry.img4 !== 'false' ? this.imgUrl(this.entry.id, 4) : undefined;
+  }
+
+  private imgUrl(id: number, n: number) {
+    return ['../../assets/ro-img/', id, '-', n, '.jpg'].join('');
+  }
+
+  private goBack() {
     this.navCtrl.pop();
   }
 }

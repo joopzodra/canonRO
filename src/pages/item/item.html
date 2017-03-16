@@ -1,30 +1,32 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar [hideBackButton]="true">
+    <ion-title>
+      Canon RO
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-slides>
+  <ion-slides [initialSlide]="tempId">
     <ion-slide *ngFor="let entry of entries">
-    <ion-content padding> 
-      <h2 class="entry-title">{{entry.title}}</h2>
-      <p class="subtitle">{{entry.subtitle}}</p>
-      <img [src]="imgUrl(entry.id, 2)" (click)="showImages(2)">
-      <p class="caption" *ngIf="entry.img2 !== 'true'">{{entry.img2}}</p>
-      <p class="body"  *ngFor="let p of entry.body.split('\n')">{{p}}</p>
-      <div *ngIf="entry.img3 !== 'false'">
-        <img [src]="imgUrl(entry.id, 3)" (click)="showImages(3)">
-        <p class="caption" *ngIf="entry.img3 !== 'true'">{{entry.img3}}</p>
-      </div>
-      <div *ngIf="entry.img4 !=='false'">
-        <img [src]="imgUrl(entry.id, 4)" (click)="showImages(4)">
-        <p class="caption" *ngIf="entry.img4 !== 'true'">{{entry.img4}}</p>
-      </div>
-      <div>
-        <img [src]="imgUrl(entry.id, 1)" (click)="showImages(entry.id, 1)">
-        <p class="caption" *ngIf="entry.img1 !== 'true'">{{entry.img1}}</p>
-      </div>
+      <ion-content padding> 
+        <h2 class="entry-title">{{entry.title}}</h2>
+        <p class="subtitle">{{entry.subtitle}}</p>
+        <img [src]="imgUrl(entry.id, 2)" (click)="showImages(entry, 2)">
+        <p class="caption" *ngIf="entry.img2 !== 'true'">{{entry.img2}}</p>
+        <p class="body"  *ngFor="let p of entry.body.split('\n')">{{p}}</p>
+        <div *ngIf="entry.img3 !== 'false'">
+          <img [src]="imgUrl(entry.id, 3)" (click)="showImages(entry, 3)">
+          <p class="caption" *ngIf="entry.img3 !== 'true'">{{entry.img3}}</p>
+        </div>
+        <div *ngIf="entry.img4 !=='false'">
+          <img [src]="imgUrl(entry.id, 4)" (click)="showImages(entry, 4)">
+          <p class="caption" *ngIf="entry.img4 !== 'true'">{{entry.img4}}</p>
+        </div>
+        <div>
+          <img [src]="imgUrl(entry.id, 1)" (click)="showImages(entry, 1)">
+          <p class="caption" *ngIf="entry.img1 !== 'true'">{{entry.img1}}</p>
+        </div>
       </ion-content>
     </ion-slide>
   </ion-slides>

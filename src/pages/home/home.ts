@@ -11,7 +11,7 @@ import { IEntry } from '../../datatypes/i-entry';
 })
 export class HomePage {
 
-  entries;
+  private entries;
 
   constructor(private navCtrl: NavController, private data: DataService) { }
 
@@ -19,12 +19,14 @@ export class HomePage {
     this.entries = this.data.getAllEntries();
   }
 
-  getIcon(id: number) {
+  private getIcon(id: number) {
     return '../../assets/ro-img/' + id + '-1.jpg';
   }
 
-  goTo(id: number): Promise<any> {
-    return this.navCtrl.push(ItemPage, {id});
+  private goTo(id: number): Promise<any> {
+    let tempItem = this.data.entries.filter(entry => entry.id === id)[0];
+    let tempId = this.data.entries.indexOf(tempItem);
+    return this.navCtrl.push(ItemPage, {id: tempId});
   }
 
 }
