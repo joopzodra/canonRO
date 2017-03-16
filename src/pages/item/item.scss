@@ -1,9 +1,7 @@
 page-item {
 
-  @media (min-width: 400px) {
-    .entry-title {
-      display: none;
-    }    
+  .slide-zoom {
+    height: 100%;
   }
 
   .subtitle {
@@ -11,6 +9,7 @@ page-item {
   }
   .body {
     text-align: left;
+    font-size: 0.8em;
   }
 
 }

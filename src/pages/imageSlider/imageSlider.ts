@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { IEntry } from '../../datatypes/i-entry';
 
@@ -15,8 +15,6 @@ export class ImageSliderPage {
   img2Url: string;
   img3Url: string;
   img4Url: string;
-
-  @ViewChild(Slides) slides: Slides;
 
   constructor(private navCtrl: NavController, private navParams: NavParams) { }
 

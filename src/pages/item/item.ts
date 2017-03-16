@@ -11,7 +11,7 @@ import { ImageSliderPage } from '../imageSlider/imageSlider';
 })
 export class ItemPage {
 
-  entry: IEntry;
+  entries: IEntry[];
   id: number;
 
   //image url's
@@ -23,20 +23,26 @@ export class ItemPage {
   constructor(private navCtrl: NavController, private navParams: NavParams, private data: DataService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
+
+    this.entries = this.data.entries;
     this.id = this.navParams.get('id');
-    this.entry = this.data.getEntry(this.id);
+    //this.entry = this.data.getEntry(this.id);
 
     //set image url's
-    ['img1', 'img2', 'img3', 'img4'].forEach(img => {
+/*    ['img1', 'img2', 'img3', 'img4'].forEach(img => {
       if (this.entry[img] !== 'false') {
         this[img] = ['../../assets/ro-img/', this.entry.id, '-', img[3], '.jpg'].join('');
       }
-    });
+    });*/
+  }
+
+  imgUrl(id: number, n: number) {
+    return ['../../assets/ro-img/', id, '-', n, '.jpg'].join('');
   }
 
   showImages(img: number) {
-    let modal = this.modalCtrl.create(ImageSliderPage, { entry: this.entry, img: img, img1: this.img1, img2: this.img2, img3: this.img3, img4: this.img4 });
-    modal.present();
+    /*let modal = this.modalCtrl.create(ImageSliderPage, { entry: this.entry, img: img, img1: this.img1, img2: this.img2, img3: this.img3, img4: this.img4 });
+    modal.present();*/
   }
 
 }
