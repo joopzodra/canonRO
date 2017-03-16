@@ -1,0 +1,16 @@
+page-item {
+
+  @media (min-width: 400px) {
+    .entry-title {
+      display: none;
+    }    
+  }
+
+  .subtitle {
+    font-weight: bold;
+  }
+  .body {
+    text-align: left;
+  }
+
+}

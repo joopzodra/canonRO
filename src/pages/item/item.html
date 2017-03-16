@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="entry">
+      {{entry.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="entry">
+  <h2 class="entry-title">{{entry.title}}</h2>
+  <p class="subtitle">{{entry.subtitle}}</p>
+  <img [src]="img2" (click)="showImages(2)">
+  <p class="caption" *ngIf="entry.img2 !== 'true'">{{entry.img2}}</p>
+  <p class="body"  *ngFor="let p of entry.body.split('\n')">{{p}}</p>
+  <div *ngIf="img3">
+  <img [src]="img3" (click)="showImages(3)">
+    <p class="caption" *ngIf="entry.img3 !== 'true'">{{entry.img3}}</p>
+  </div>
+  <div *ngIf="img4">
+    <img *ngIf="img4" [src]="img4" (click)="showImages(4)">
+    <p class="caption" *ngIf="entry.img4 !== 'true'">{{entry.img4}}</p>
+  </div>
+  <div>
+    <img [src]="img1" (click)="showImages(1)">
+    <p class="caption" *ngIf="entry.img1 !== 'true'">{{entry.img1}}</p>
+  </div>
+</ion-content>

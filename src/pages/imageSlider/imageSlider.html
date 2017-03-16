@@ -1,0 +1,26 @@
+<ion-slides (click)="goBack()" [initialSlide]="img - 1">
+  <ion-slide *ngIf="img1Url">
+    <div class="item-content">
+      <img [src]="img1Url">
+      <p class="caption" *ngIf="entry.img1 !== 'true'">{{entry.img1}}</p>
+    </div>
+  </ion-slide>
+  <ion-slide *ngIf="img2Url">
+    <div class="item-content">
+      <img [src]="img2Url">
+      <p class="caption" *ngIf="entry.img2 !== 'true'">{{entry.img2}}</p>
+    </div>
+  </ion-slide>
+  <ion-slide *ngIf="img3Url">
+    <div class="item-content">
+      <img [src]="img3Url">
+      <p class="caption" *ngIf="entry.img3 !== 'true'">{{entry.img3}}</p>
+      </div>
+  </ion-slide>
+  <ion-slide *ngIf="img4Url">
+    <div class="item-content">
+      <img [src]="img4Url">
+      <p class="caption" *ngIf="entry.img4 !== 'true'">{{entry.img4}}</p>
+    </div>
+  </ion-slide>
+</ion-slides>

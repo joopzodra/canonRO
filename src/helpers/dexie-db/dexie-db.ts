@@ -14,19 +14,26 @@ export class DexieDb extends Dexie {
     super('canonRO');
 
     this.version(1).stores({
-      entries: 'id, title, subtitle, lead, body'
+      entries: 'id, title, category, subtitle, lead, img1, img2, img3, img4, x, y, body'
     });
 
     let data = [];
-    const row = /^(\d\d?),(.*?),(.*?),(.*?),"([\s\S]*?)"$/gm;
+    const row = /^(\d\d?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),"([\s\S]*?)"$/gm;
     let match;
     while ((match = row.exec(entriesCsv)) !== null) {
       data.push({
         id: +match[1],
         title: match[2],
-        subtitle: match[3],
-        lead: match[4],
-        body: match[5]
+        category: match[3],
+        subtitle: match[4],
+        lead: match[5],
+        img1: match[6],
+        img2: match[7],
+        img3: match[8],
+        img4: match[9],
+        x: match[10],
+        y: match[11],
+        body: match[12]
       });
     }
 

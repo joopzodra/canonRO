@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Subject } from 'rxjs';
 
-import { SQLiteService } from '../../services/sqlite.service';
-import { entriesCsv } from '../../helpers/dexie-db/entries-csv';
+import { DataService } from '../../services/data.service';
+import { ItemPage } from '../item/item';
+import { IEntry } from '../../datatypes/i-entry';
 
 @Component({
   selector: 'page-home',
@@ -13,11 +13,18 @@ export class HomePage {
 
   entries;
 
-  constructor(public navCtrl: NavController, private sqlite: SQLiteService) { }
+  constructor(private navCtrl: NavController, private data: DataService) { }
 
   ngOnInit() {
-    this.entries = this.sqlite.getAllEntries()     
-      .catch(err => console.log(err.message));
+    this.entries = this.data.getAllEntries();
+  }
+
+  getIcon(id: number) {
+    return '../../assets/ro-img/' + id + '-1.jpg';
+  }
+
+  goTo(id: number): Promise<any> {
+    return this.navCtrl.push(ItemPage, {id});
   }
 
 }

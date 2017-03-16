@@ -1,35 +1,40 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpModule }    from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { ItemPage } from '../pages/item/item';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
-import { SQLiteService } from '../services/sqlite.service';
+import { ImageSliderPage } from '../pages/imageSlider/imageSlider';
+import { DataService } from '../services/data.service';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    ItemPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ImageSliderPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    ItemPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ImageSliderPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SQLiteService
+    DataService
     ]
 })
 export class AppModule {}
