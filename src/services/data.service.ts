@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Platform } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -10,7 +9,7 @@ import { IEntry } from '../datatypes/i-entry';
 @Injectable()
 export class DataService {
 
-  private dataUrl = '../assets/data/data.json';
+  private dataUrl = 'assets/data/data.json';
   public entries: IEntry[];
 
   constructor(private http: Http) {

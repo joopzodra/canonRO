@@ -23,7 +23,7 @@ export class ItemPage {
   }
 
   private imgUrl(id: number, n: number) {
-    return ['../../assets/ro-img/', id, '-', n, '.jpg'].join('');
+    return ['assets/ro-img/', id, '-', n, '.jpg'].join('');
   }
 
   private showImages(entry: IEntry, initialImg: number) {

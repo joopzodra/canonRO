@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { IEntry } from '../../datatypes/i-entry';
@@ -33,7 +33,7 @@ export class ImageSliderPage {
   }
 
   private imgUrl(id: number, n: number) {
-    return ['../../assets/ro-img/', id, '-', n, '.jpg'].join('');
+    return ['assets/ro-img/', id, '-', n, '.jpg'].join('');
   }
 
   private goBack() {
