@@ -11,24 +11,12 @@ import { ItemPage } from '../item/item';
 export class HomePage {
 
   private entries;
+  private mode = 'A-Z';
 
   constructor(private navCtrl: NavController, private data: DataService) { }
 
   ngOnInit() {
     this.entries = this.data.getAllEntries();
-  }
-
-  private getIcon(id: number) {
-    return 'assets/ro-img/' + id + '-1.jpg';
-  }
-
-  private goTo(id: number): Promise<any> {
-    
-    //corrigeren als alle 35 items er zijn
-    let tempItem = this.data.entries.filter(entry => entry.id === id)[0];
-    let tempId = this.data.entries.indexOf(tempItem);
-    
-    return this.navCtrl.push(ItemPage, {id: tempId});
   }
 
 }

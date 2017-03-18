@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ItemPage } from '../pages/item/item';
 import { HomePage } from '../pages/home/home';
+import { ListAzComp } from '../pages/home/list-az/list-az';
+import { MapComp } from '../pages/home/map/map';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ImageSliderPage } from '../pages/imageSlider/imageSlider';
 import { DataService } from '../services/data.service';
@@ -16,6 +18,8 @@ import { DataService } from '../services/data.service';
     AboutPage,
     ItemPage,
     HomePage,
+    ListAzComp,
+    MapComp,
     TabsPage,
     ImageSliderPage
   ],

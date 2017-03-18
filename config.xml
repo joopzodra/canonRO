@@ -36,5 +36,10 @@
     <plugin name="cordova-plugin-statusbar" spec="2.2.1" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
-    <plugin name="cordova-sqlite-ext" spec="~0.10.4" />
+    <plugin name="cordova-plugin-googlemaps" spec="~1.4.0">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBFDpsEwzdTxgU3do12FFM6hUOScuSZ7Lk" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyABSb26Os2PNLM_HxAMF0m8nVM03O7h6qc" />
+        <variable name="NSLOCATIONWHENINUSEUSAGEDESCRIPTION" value="Show your location on the map" />
+        <variable name="NSLOCATIONALWAYSUSAGEDESCRIPTION" value="Trace your location on the map" />
+    </plugin>
 </widget>
