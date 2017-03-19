@@ -12,14 +12,14 @@ import { ImageSliderPage } from '../imageSlider/imageSlider';
 export class ItemPage {
 
   private entries: IEntry[];
-  tempId: number;
+  private index: number;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private data: DataService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
 
     this.entries = this.data.entries;
-    this.tempId = +this.navParams.get('id');
+    this.index = +this.navParams.get('index');
   }
 
   private imgUrl(id: number, n: number) {

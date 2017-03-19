@@ -60,26 +60,26 @@ export class MapComp {
       map.moveCamera(position); // works on iOS and Android
 
       this.entries.toPromise()
-        .then(entries => entries.filter(entry => entry.x !== 0))
-        .then(entries => entries.map(entry => (<GoogleMapsMarkerOptions>{
-          position: new GoogleMapsLatLng(entry.y, entry.x),
-          title: entry.title,
-          icon: 'blue',
-          infoClick: () => this.goTo(entry.id)
-        })))
+        .then(entries => entries.map((entry, index) => {
+          if (entry.x !== 0) {
+            return <GoogleMapsMarkerOptions>{
+              position: new GoogleMapsLatLng(entry.y, entry.x),
+              title: entry.title,
+              icon: 'blue',
+              infoClick: () => this.goTo(index)
+            }
+          }
+        }))
         .then(markerOptions => markerOptions.map(options => map.addMarker(options)))
         .then(marker => marker)
         .catch(err => console.log(err));
     });
   }
 
-  private goTo(id: number): Promise<any> {
+  private goTo(index: number): Promise<any> {
+    console.log(index)
 
-    //corrigeren als alle 35 items er zijn
-    let tempItem = this.data.entries.filter(entry => entry.id === id)[0];
-    let tempId = this.data.entries.indexOf(tempItem);
-
-    return this.navCtrl.push(ItemPage, { id: tempId });
+    return this.navCtrl.push(ItemPage, { index });
   }
 
   private toggleNotMappedItems() {

@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-slides [initialSlide]="tempId">
+  <ion-slides [initialSlide]="index">
     <ion-slide *ngFor="let entry of entries">
       <ion-content padding> 
         <h2 class="entry-title">{{entry.title}}</h2>
