@@ -7,14 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-slides [initialSlide]="index">
-    <ion-slide *ngFor="let entry of entries">
+  <ion-slides [initialSlide]="1" (ionSlideNextEnd)="onNext()" (ionSlidePrevEnd)="onPrev()">
+    <ion-slide *ngFor="let entry of slideEntries">
       <ion-content padding> 
         <h2 class="entry-title">{{entry.title}}</h2>
         <p class="subtitle">{{entry.subtitle}}</p>
         <img [src]="imgUrl(entry.id, 2)" (click)="showImages(entry, 2)">
         <p class="caption" *ngIf="entry.img2 !== 'true'">{{entry.img2}}</p>
-        <p class="body"  *ngFor="let p of entry.body.split('\n')">{{p}}</p>
+        <p class="body"  *ngFor="let p of entry.body.split('\n')">
+          <span *ngFor="let s of p.split('(→')  | createlinks">{{s}}</span>
+        </p>
         <div *ngIf="entry.img3 !== 'false'">
           <img [src]="imgUrl(entry.id, 3)" (click)="showImages(entry, 3)">
           <p class="caption" *ngIf="entry.img3 !== 'true'">{{entry.img3}}</p>

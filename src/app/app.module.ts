@@ -11,6 +11,7 @@ import { MapComp } from '../pages/home/map/map';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ImageSliderPage } from '../pages/imageSlider/imageSlider';
 import { DataService } from '../services/data.service';
+import { CreateLinks } from '../pipes/create-links';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DataService } from '../services/data.service';
     ListAzComp,
     MapComp,
     TabsPage,
-    ImageSliderPage
+    ImageSliderPage,
+    CreateLinks
   ],
   imports: [
     IonicModule.forRoot(MyApp),
