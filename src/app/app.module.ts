@@ -11,7 +11,7 @@ import { MapComp } from '../pages/home/map/map';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ImageSliderPage } from '../pages/imageSlider/imageSlider';
 import { DataService } from '../services/data.service';
-import { CreateLinks } from '../pipes/create-links';
+import { SplitLinks } from '../pipes/split-links';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { CreateLinks } from '../pipes/create-links';
     MapComp,
     TabsPage,
     ImageSliderPage,
-    CreateLinks
+    SplitLinks
   ],
   imports: [
     IonicModule.forRoot(MyApp),

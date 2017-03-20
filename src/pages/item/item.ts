@@ -80,8 +80,4 @@ export class ItemPage {
     modal.present();
   }
 
-  private test() {
-    console.log("test geslaagd")
-  }
-
 }
