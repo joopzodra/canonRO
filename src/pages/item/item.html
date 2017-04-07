@@ -15,7 +15,7 @@
         <img [src]="imgUrl(entry.id, 2)" (click)="showImages(entry, 2)">
         <p class="caption" *ngIf="entry.img2 !== 'true'">{{entry.img2}}</p>
         <p class="body"  *ngFor="let p of entry.body.split('\n')">
-          <span *ngFor="let span of p | splitLinks">{{span}}</span>
+          <span *ngFor="let span of p | splitLinks" [class.link]="isLink(span)" (click)="goToItem(span)">{{span | createLinkText}}</span>
         </p>
         <div *ngIf="entry.img3 !== 'false'">
           <img [src]="imgUrl(entry.id, 3)" (click)="showImages(entry, 3)">

@@ -29,7 +29,7 @@ export class MapComp {
 
   constructor(private navCtrl: NavController, private data: DataService, private platform: Platform) {
 
-    if (this.platform.is('cordova')) {
+    if (this.platform.is('cordova') || this.platform.is('ios')) {
       this.mobile = true;
     }
   }
@@ -58,6 +58,9 @@ export class MapComp {
     map.one(GoogleMapsEvent.MAP_READY).then(() => {
 
       map.moveCamera(position); // works on iOS and Android
+      map.setBackgroundColor('rgb(255,255,255)');
+      map.setPadding(0);
+      map.setDebuggable(true);
 
       this.entries.toPromise()
         .then(entries => entries.map((entry, index) => {
@@ -70,19 +73,19 @@ export class MapComp {
             }
           }
         }))
-        .then(markerOptions => markerOptions.map(options => map.addMarker(options)))
-        .then(marker => marker)
+/*        .then(markerOptions => markerOptions.map(options => map.addMarker(options)))
+        .then(marker => marker)*/
         .catch(err => console.log(err));
     });
   }
 
   private goTo(index: number): Promise<any> {
-    console.log(index)
 
     return this.navCtrl.push(ItemPage, { index });
   }
 
   private toggleNotMappedItems() {
+    
     this.buttonText === 'Overige iconen' ? this.buttonText = 'Verberg overige iconen' : this.buttonText = 'Overige iconen';
   }
 

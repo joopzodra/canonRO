@@ -80,4 +80,14 @@ export class ItemPage {
     modal.present();
   }
 
+  private isLink(span) {
+    return span[1] === '→' ? true : false;
+  }
+
+  private goToItem(span) {
+    console.log(span);
+    let index = 0;
+    return this.navCtrl.push(ItemPage, { index });
+  }
+
 }

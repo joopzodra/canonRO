@@ -1,3 +1,8 @@
 map {
+
+  /* hide opaque green borders around google map */
+  .scroll-content {
+    padding: 0 !important;
+  }
  
 }
