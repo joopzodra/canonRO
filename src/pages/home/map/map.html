@@ -1,11 +1,13 @@
-<ion-content>
+<ion-content class="ion-content-for-map">
   <p *ngIf="!mobile">De kaart is alleen zichtbaar op een mobiel apparaat.</p>
   <div id="map" style="height:100%;">
     <div *ngIf="mobile">
-     <button ion-button (click)="toggleNotMappedItems()">{{buttonText}}</button>
      <ion-list *ngIf="buttonText !== 'Overige iconen'">
       <ion-item *ngFor="let item of notMappedItems | async">{{item.title}}</ion-item>
     </ion-list>
   </div>
+</div>
+<div class="toggleNotMapped">
+  <button ion-button (click)="toggleNotMappedItems()">{{buttonText}}</button>
 </div>
 </ion-content>

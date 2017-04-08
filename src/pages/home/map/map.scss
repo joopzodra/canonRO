@@ -1,8 +1,12 @@
 map {
 
-  /* hide opaque green borders around google map */
-  .scroll-content {
-    padding: 0 !important;
+  .ion-content-for-map {
+    position: relative;
   }
- 
+
+  .toggleNotMapped {
+    position: absolute;
+    top: 150px;
+    left: 5%;
+  }
 }

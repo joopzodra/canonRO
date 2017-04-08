@@ -14,9 +14,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-<div style="height:100%;" [ngSwitch]="mode">
+<ion-content>
+  <div style="height:100%;" [ngSwitch]="mode">
   <list-az *ngSwitchCase="'A-Z'" [entries]="entries"></list-az>
-  <map style="height:100%;" *ngSwitchCase="'map'" [entries]="entries"></map>
-</div>
-  </ion-content>
+    <map *ngSwitchCase="'map'" [entries]="entries"></map>
+  </div>
+</ion-content>
