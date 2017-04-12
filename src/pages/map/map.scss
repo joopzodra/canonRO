@@ -1,0 +1,23 @@
+map {
+
+  .ion-content-for-map {
+    position: relative;
+  }
+  
+  .not-mapped-entries {
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    left: 1%;
+
+    p {
+      font-size: 0.8em;
+    }
+  }
+
+  p {
+    padding: 2px 15px;
+
+  }
+
+}

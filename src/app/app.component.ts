@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, NavController} from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsComp } from '../pages/tabs/tabs';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = TabsComp;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -19,4 +19,5 @@ export class MyApp {
       Splashscreen.hide();
     });
   }
+
 }

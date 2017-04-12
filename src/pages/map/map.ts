@@ -11,35 +11,39 @@ import {
 import { Observable } from 'rxjs';
 import { Platform } from 'ionic-angular';
 
-import { DataService } from '../../../services/data.service';
-import { ItemPage } from '../../item/item';
-import { IEntry } from '../../../datatypes/i-entry';
+import { DataService } from '../../services/data.service';
+import { ItemPage } from '../item/item';
+import { IEntry } from '../../datatypes/i-entry';
 
 
 @Component({
   selector: 'map',
   templateUrl: 'map.html'
 })
-export class MapComp {
+export class MapPage {
 
-  @Input() entries: Observable<IEntry[]>;
-  private notMappedItems: Promise<IEntry[]>;
+  private entries: Observable<IEntry[]>;
+  private notMappedEntries: string;
   private mobile = false;
   private buttonText = 'Overige iconen';
 
-  constructor(private navCtrl: NavController, private data: DataService, private platform: Platform) {
+  constructor(private navCtrl: NavController, private platform: Platform, private navParams: NavParams) {
 
     if (this.platform.is('cordova') || this.platform.is('ios')) {
       this.mobile = true;
-    }
+      this.entries = this.navParams.get('entries');
+    }      
   }
 
   ngAfterViewInit() {
 
     if (this.mobile === true) {
       this.loadMap();
-      this.notMappedItems = this.entries.toPromise()
-        .then(entries => entries.filter(entry => entry.x === 0));
+      this.entries
+        .subscribe(entries => {
+          let notMappedEntries = entries.filter(entry => entry.x === 0);
+          this.notMappedEntries = notMappedEntries.map(entry => entry.title).join(', ');
+        });
     }
   }
 
@@ -58,35 +62,24 @@ export class MapComp {
     map.one(GoogleMapsEvent.MAP_READY).then(() => {
 
       map.moveCamera(position); // works on iOS and Android
-      map.setBackgroundColor('rgb(255,255,255)');
-      map.setPadding(0);
-      map.setDebuggable(true);
 
-      this.entries.toPromise()
-        .then(entries => entries.map((entry, index) => {
+      this.entries
+        .subscribe(entries => entries.map((entry, index) => {
           if (entry.x !== 0) {
-            return <GoogleMapsMarkerOptions>{
+            map.addMarker({
               position: new GoogleMapsLatLng(entry.y, entry.x),
               title: entry.title,
               icon: 'blue',
               infoClick: () => this.goTo(index)
-            }
+            })
           }
         }))
-/*        .then(markerOptions => markerOptions.map(options => map.addMarker(options)))
-        .then(marker => marker)*/
-        .catch(err => console.log(err));
     });
   }
 
   private goTo(index: number): Promise<any> {
 
     return this.navCtrl.push(ItemPage, { index });
-  }
-
-  private toggleNotMappedItems() {
-    
-    this.buttonText === 'Overige iconen' ? this.buttonText = 'Verberg overige iconen' : this.buttonText = 'Overige iconen';
   }
 
 };

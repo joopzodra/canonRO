@@ -1,9 +1,0 @@
-<ion-list>
-  <ion-item *ngFor="let entry of entries | async; let i = index" (click)="goTo(i)" text-wrap>
-    <ion-thumbnail item-left>
-     <img [src]="getIcon(entry.id)">
-   </ion-thumbnail>
-   <h2>{{entry.title}}</h2>
-   <p>{{entry.lead.replace('"', '').replace('"', '') }}</p>
- </ion-item>
-</ion-list>
