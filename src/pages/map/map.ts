@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {
   GoogleMap,
@@ -11,7 +11,6 @@ import {
 import { Observable } from 'rxjs';
 import { Platform } from 'ionic-angular';
 
-import { DataService } from '../../services/data.service';
 import { ItemPage } from '../item/item';
 import { IEntry } from '../../datatypes/i-entry';
 
@@ -25,7 +24,6 @@ export class MapPage {
   private entries: Observable<IEntry[]>;
   private notMappedEntries: string;
   private mobile = false;
-  private buttonText = 'Overige iconen';
 
   constructor(private navCtrl: NavController, private platform: Platform, private navParams: NavParams) {
 

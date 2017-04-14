@@ -9,7 +9,6 @@ page-item {
   }
   .body {
     text-align: left;
-    font-size: 0.8em;
     max-width: 500px;
     margin: 0 auto ;
     margin-top: 15px;
@@ -19,6 +18,17 @@ page-item {
   span.link {
     color: blue;
     background: rgba(0,0,0,0.1);
+  }
+
+  .caption {
+    font-style: italic;
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
   }
 
 }

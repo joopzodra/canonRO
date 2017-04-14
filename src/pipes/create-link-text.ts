@@ -13,7 +13,7 @@ export class CreateLinkText {
     let matches = value.match(/link(\d\d?)/);
     if (matches) {
       let key = matches[1];
-       return Object.keys(entryIdTransformDict).indexOf(key) > -1 ? '(\u2192 ' + entryIdTransformDict[key].title + ')' : '(\u2192 ' + 'link volgt' + ')';
+       return Object.keys(entryIdTransformDict).indexOf(key) > -1 ? '(\u2192 ' + entryIdTransformDict[key].title + ')' : '(\u00bb ' + 'link volgt' + ')';
     }
 
     return value;    
