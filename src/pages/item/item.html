@@ -7,7 +7,8 @@
 </ion-header>
 
 
-<ion-content padding> 
+<ion-content padding>
+<div class="item-container">
   <h2 class="entry-title">{{entry.title}}</h2>
   <p class="subtitle">{{entry.subtitle}}</p>
   <img [src]="imgUrl(entry.id, 2)" (click)="showImages(entry, 2)">
@@ -26,5 +27,6 @@
   <div>
     <img [src]="imgUrl(entry.id, 1)" (click)="showImages(entry, 1)">
     <p class="caption">{{entry.img1 === "true" ? "" : entry.img1}}</p>
+  </div>
   </div>
 </ion-content>

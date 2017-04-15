@@ -1,11 +1,17 @@
 page-item {
 
-  .slide-zoom {
-    height: 100%;
+  .item-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .entry-title {
+    text-align: center;
   }
 
   .subtitle {
     font-weight: bold;
+    text-align: center;
   }
   .body {
     text-align: left;
