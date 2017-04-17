@@ -1,5 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { HttpModule }    from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -26,7 +26,13 @@ import { CreateLinkText } from '../pipes/create-link-text';
     CreateLinkText
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      platforms: {
+        ios: {
+          backButtonText: 'Terug'
+        }
+      }
+    }),
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -40,8 +46,8 @@ import { CreateLinkText } from '../pipes/create-link-text';
     ItemPage
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     DataService
-    ]
+  ]
 })
-export class AppModule {}
+export class AppModule { }

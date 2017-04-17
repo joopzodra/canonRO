@@ -15,11 +15,46 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-ion-app._gmaps_cdv_ .nav-decor{
-    display: none !important;
-}
 
 h1, h2, h3, h4, h5, h6 {
   line-height:1.6
 }
 
+//NECESSARY FOR GOOGLE MAPS PLUGIN!!!
+ion-app._gmaps_cdv_ .nav-decor{
+    display: none !important;
+}
+
+//Header font
+@font-face {
+  font-family: "Iceland";
+  src: url("../assets/fonts/Iceland-Regular.ttf") format("truetype");
+}
+
+.header-container {
+  font-family: "Iceland";
+  width: auto;
+  text-align: right;
+}
+
+.header {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 26px;
+}
+
+.ro {
+  font-size: 33px;
+  color: #992600;
+  line-height: 0.5;
+}
+
+.ro-small {
+  color: #992600;  
+}
+
+.subheader {
+  margin-top: -5px;
+  margin-bottom: 0;
+  font-size: 16px;
+}

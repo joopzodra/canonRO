@@ -1,13 +1,17 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Canon Ruimtelijke Ordening</ion-title>
+    <ion-title>
+      <div class="header-container">
+        <p class="header">canon<span class="ro">RO</span></p><p class="subheader"><span class="ro-small">r</span>uimtelijke</p><p class="subheader"><span class="ro-small">o</span>rdening</p>
+      </div>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="ion-content-for-map">
   <p *ngIf="!mobile">De kaart is alleen zichtbaar op een mobiel apparaat.</p>
   <div id="map" style="height:100%;">
-  <div *ngIf="mobile&&notMappedEntries" class="not-mapped-entries">
+    <div *ngIf="mobile&&notMappedEntries" class="not-mapped-entries">
       <p style="background-color:white;">Niet op de kaart gemarkeerd: {{notMappedEntries}}.</p>
     </div>
   </div>

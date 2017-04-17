@@ -2,6 +2,11 @@ map {
 
   .ion-content-for-map {
     position: relative;
+
+    p {
+      padding: 2px 15px;
+
+    }
   }
   
   .not-mapped-entries {
@@ -15,9 +20,6 @@ map {
     }
   }
 
-  p {
-    padding: 2px 15px;
 
-  }
 
 }
