@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, Tabs } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-about',

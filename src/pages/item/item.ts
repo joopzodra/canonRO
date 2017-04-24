@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController, NavController, NavParams, Slides, ViewController } from 'ionic-angular';
 
 import { DataService } from '../../services/data.service';
@@ -13,7 +13,7 @@ import { entryIdTransformDict } from '../../helpers/entryIdTransformDict';
 export class ItemPage {
 
   private entries: IEntry[];
-  private slideEntries: IEntry[];
+  //private slideEntries: IEntry[];
   private index: number;
   @ViewChild(Slides) slides: Slides;
   private entry;
