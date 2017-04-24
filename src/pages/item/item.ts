@@ -53,7 +53,7 @@ export class ItemPage {
 
   private goToItem(span) {
     let bookNumber = span.substring(4); //span format is: 'linkXX'
-    let entriesIndex = entryIdTransformDict[bookNumber].idApp - 1;
+    let entriesIndex = entryIdTransformDict[bookNumber].appId - 1;
     return this.navCtrl.push(ItemPage, { index: entriesIndex });
   }
 
