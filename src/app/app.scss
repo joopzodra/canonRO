@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 //NECESSARY FOR GOOGLE MAPS PLUGIN!!!
 ion-app._gmaps_cdv_ .nav-decor{
-    display: none !important;
+  display: none !important;
 }
 
 //Header font
@@ -35,26 +35,39 @@ ion-app._gmaps_cdv_ .nav-decor{
   font-family: "Iceland";
   width: auto;
   text-align: right;
+
+  .header {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 26px;
+  }
+
+  .ro {
+    font-size: 33px;
+    color: #992600;
+    line-height: 0.5;
+  }
+
+  .ro-small {
+    color: #992600;  
+  }
+
+  .subheader {
+    margin-top: -5px;
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
 }
 
-.header {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 26px;
-}
+.toolbar-title-ios {
+  font-weight: normal;
 
-.ro {
-  font-size: 33px;
-  color: #992600;
-  line-height: 0.5;
-}
+  .header {
+    margin-top: 4px;    
+  }
 
-.ro-small {
-  color: #992600;  
-}
-
-.subheader {
-  margin-top: -5px;
-  margin-bottom: 0;
-  font-size: 16px;
+  .subheader:nth-child(3) {
+    padding-bottom: 9px;
+  }
 }
