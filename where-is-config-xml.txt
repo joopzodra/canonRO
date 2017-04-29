@@ -1,1 +1,1 @@
-This project also has an config.xml file. It's an important file to be used when building the app for iOS and for Android. However, it contains keys for the Google Maps API which should better not be made public. Thats' why the config.xml file is in this repo.
+This project has a config.xml file. It's an important file, to be used when building the app for iOS and for Android. However, it contains keys for the Google Maps API which should better not be made public. That's why the config.xml file is not in this repo.
